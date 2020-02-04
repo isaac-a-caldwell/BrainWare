@@ -1,83 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Web.Infrastructure
+﻿namespace Web.Infrastructure
 {
+    using System.Collections.Generic;
     using System.Data;
     using Models;
 
     public class OrderService
     {
-        public List<Order> GetOrdersForCompany(int CompanyId)
+        public List<Order> GetFullOrdersForCompany(int companyId)
         {
-
             var database = new Database();
+            var orders = GetOrdersForCompany(database, companyId);
+            var orderProducts = GetOrderProductsJoinedByProducts(database);
 
+            foreach (var order in orders)
+            {
+                foreach (var orderProduct in orderProducts)
+                {
+                    if (orderProduct.OrderId != order.OrderId)
+                        continue;
+
+                    order.OrderProducts.Add(orderProduct);
+                    order.OrderTotal += (orderProduct.Price * orderProduct.Quantity);
+                }
+            }
+
+            return orders;
+        }
+
+        internal List<Order> GetOrdersForCompany(Database database, int companyId)
+        {
             // Get the orders
-            var sql1 =
-                "SELECT c.name, o.description, o.order_id FROM company c INNER JOIN [order] o on c.company_id=o.company_id";
+            var sqlQuery =
+                $"SELECT c.name, o.description, o.order_id FROM company c INNER JOIN [order] o on c.company_id=o.company_id where o.company_id={companyId}";
 
-            var reader1 = database.ExecuteReader(sql1);
+            var reader = database.ExecuteReader(sqlQuery);
 
             var values = new List<Order>();
-            
-            while (reader1.Read())
+
+            while (reader.Read())
             {
-                var record1 = (IDataRecord) reader1;
+                var record = (IDataRecord)reader;
 
                 values.Add(new Order()
                 {
-                    CompanyName = record1.GetString(0),
-                    Description = record1.GetString(1),
-                    OrderId = record1.GetInt32(2),
+                    //column names are better than ordinal numbers for readability
+                    CompanyName = (string)record["name"],
+                    Description = (string)record["description"],
+                    OrderId = (int)record["order_id"],
                     OrderProducts = new List<OrderProduct>()
                 });
 
             }
 
-            reader1.Close();
+            reader.Close();
 
+            return values;
+        }
+        internal List<OrderProduct> GetOrderProductsJoinedByProducts(Database database)
+        {
             //Get the order products
-            var sql2 =
-                "SELECT op.price, op.order_id, op.product_id, op.quantity, p.name, p.price FROM orderproduct op INNER JOIN product p on op.product_id=p.product_id";
+            var sqlQuery =
+                "SELECT op.price, op.order_id, op.product_id, op.quantity, p.name, p.price as product_price FROM orderproduct op INNER JOIN product p on op.product_id=p.product_id";
 
-            var reader2 = database.ExecuteReader(sql2);
+            var reader = database.ExecuteReader(sqlQuery);
 
-            var values2 = new List<OrderProduct>();
+            var values = new List<OrderProduct>();
 
-            while (reader2.Read())
+            while (reader.Read())
             {
-                var record2 = (IDataRecord)reader2;
+                var record = (IDataRecord)reader;
 
-                values2.Add(new OrderProduct()
+                values.Add(new OrderProduct()
                 {
-                    OrderId = record2.GetInt32(1),
-                    ProductId = record2.GetInt32(2),
-                    Price = record2.GetDecimal(0),
-                    Quantity = record2.GetInt32(3),
+                    //column names are better than ordinal numbers for readability
+                    OrderId = (int)record["order_id"],
+                    ProductId = (int)record["product_id"],
+                    Price = (decimal)record["price"],
+                    Quantity = (int)record["quantity"],
                     Product = new Product()
                     {
-                        Name = record2.GetString(4),
-                        Price = record2.GetDecimal(5)
+                        Name = (string)record["name"],
+                        Price = (decimal)record["product_price"],
                     }
                 });
-             }
-
-            reader2.Close();
-
-            foreach (var order in values)
-            {
-                foreach (var orderproduct in values2)
-                {
-                    if (orderproduct.OrderId != order.OrderId)
-                        continue;
-
-                    order.OrderProducts.Add(orderproduct);
-                    order.OrderTotal = order.OrderTotal + (orderproduct.Price * orderproduct.Quantity);
-                }
             }
+            reader.Close();
 
             return values;
         }

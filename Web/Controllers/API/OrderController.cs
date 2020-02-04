@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using Infrastructure;
     using Models;
@@ -18,7 +14,7 @@ namespace Web.Controllers
         {
             var data = new OrderService();
 
-            return data.GetOrdersForCompany(id);
+            return data.GetFullOrdersForCompany(id);
         }
     }
 }

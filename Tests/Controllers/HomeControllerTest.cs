@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Web;
 using Web.Controllers;
 
 namespace Tests.Controllers
@@ -9,7 +8,7 @@ namespace Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void Index_TitleSet()
         {
             // Arrange
             HomeController controller = new HomeController();

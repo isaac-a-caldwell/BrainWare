@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ProjectDB", "ProjectDB\ProjectDB.sqlproj", "{58D1E657-AA21-497F-BA9C-634D6DA2D921}"
 EndProject
@@ -11,26 +11,61 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Chrome|Any CPU = Chrome|Any CPU
+		Chrome|x64 = Chrome|x64
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Chrome|Any CPU.Build.0 = Chrome|Any CPU
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Chrome|Any CPU.Deploy.0 = Chrome|Any CPU
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Chrome|x64.ActiveCfg = Chrome|x64
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Chrome|x64.Build.0 = Chrome|x64
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Chrome|x64.Deploy.0 = Chrome|x64
 		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Debug|x64.ActiveCfg = Debug|x64
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Debug|x64.Build.0 = Debug|x64
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Debug|x64.Deploy.0 = Debug|x64
 		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Release|x64.ActiveCfg = Release|x64
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Release|x64.Build.0 = Release|x64
+		{58D1E657-AA21-497F-BA9C-634D6DA2D921}.Release|x64.Deploy.0 = Release|x64
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Chrome|Any CPU.Build.0 = Chrome|Any CPU
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Chrome|x64.ActiveCfg = Chrome|x64
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Chrome|x64.Build.0 = Chrome|x64
 		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Debug|x64.ActiveCfg = Debug|x64
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Debug|x64.Build.0 = Debug|x64
 		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Release|x64.ActiveCfg = Release|x64
+		{F188788A-1ECA-4614-B085-C6F57D2990AA}.Release|x64.Build.0 = Release|x64
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Chrome|Any CPU.Build.0 = Chrome|Any CPU
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Chrome|x64.ActiveCfg = Chrome|x64
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Chrome|x64.Build.0 = Chrome|x64
 		{6C10F27E-A278-4801-8AC7-929212274D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C10F27E-A278-4801-8AC7-929212274D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Debug|x64.ActiveCfg = Debug|x64
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Debug|x64.Build.0 = Debug|x64
 		{6C10F27E-A278-4801-8AC7-929212274D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C10F27E-A278-4801-8AC7-929212274D85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Release|x64.ActiveCfg = Release|x64
+		{6C10F27E-A278-4801-8AC7-929212274D85}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA341ECF-E9EF-47D3-9FFF-C525B78DDED3}
 	EndGlobalSection
 EndGlobal
